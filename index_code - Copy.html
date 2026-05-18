@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CODE? | Personal Portfolio Journey</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&family=Montserrat:wght@300;400;600;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style_code.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="main_code.js" defer></script>
+</head>
+<body>
+
+  <!-- Background Ambient -->
+  <div class="ambient-bg"></div>
+
+  <!-- Landing Screen -->
+  <section id="landing-screen" class="screen active">
+    <div class="content-center">
+      <h1 class="brand-title">VAN THI MAI PHUONG</h1>
+      <p class="brand-subtitle">An Interactive Journey</p>
+      <div class="btn-group" style="display: flex; gap: 20px; justify-content: center; align-items: center;">
+        <button id="btn-explore" class="btn-primary">Explore</button>
+        <button id="btn-skip" class="btn-outline" style="border-color: var(--metallic-gold); color: var(--metallic-gold);">Skip to Portfolio</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Journey Screen: The Cards -->
+  <section id="journey-screen" class="screen hidden">
+    <div class="cards-container" id="cards-container">
+      <!-- Cards will be generated here by JS -->
+    </div>
+  </section>
+
+  <!-- Content Modal View (During Sequence) -->
+  <section id="content-screen" class="screen hidden content-overlay">
+    <button id="btn-back" class="btn-close">×</button>
+    
+    <div class="content-panel">
+      <!-- C - Character -->
+      <div id="sec-C" class="narrative-content hidden">
+        <div class="outline-box">
+          <h2 class="section-title"><span class="drop-cap">C</span>haracter</h2>
+          <div class="char-layout">
+            <div class="char-info">
+              <div class="info-row">
+                <strong>Name</strong>
+                <span>Van Thi Mai Phuong (Sena)</span>
+              </div>
+              <div class="info-row">
+                <strong>Education</strong>
+                <span>NEU - Bachelor of Finance & Banking</span>
+              </div>
+              <div class="info-row align-top">
+                <strong>Skill</strong>
+                <div class="tags">
+                  <span class="tag bg-burgundy">Data Analysis</span>
+                  <span class="tag bg-burgundy">Digital Marketing</span>
+                  <span class="tag bg-burgundy">IELTS 7.0</span>
+                  <span class="tag bg-burgundy">Critical Thinking</span>
+                </div>
+              </div>
+              <p class="char-desc">Beyond academic knowledge, I focus on developing practical perspectives on how businesses operate, how decisions are made, and how value is created. I am particularly interested in roles that combine analytical thinking with strategic insight, where I can continuously learn, adapt, and contribute to meaningful outcomes.</p>
+            </div>
+            <div class="char-photo">
+              <img src="profile.jpg" alt="Sena">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- O - Outlook -->
+      <div id="sec-O" class="narrative-content hidden">
+        <div class="outline-box">
+          <h2 class="section-title"><span class="drop-cap">O</span>utlook</h2>
+          <div class="text-content">
+            <h3>How I think</h3>
+            <p>I approach problems through a structured yet flexible mindset. I start by breaking down complex situations into clear components, then use data and logical reasoning to identify key drivers and insights. At the same time, I remain adaptable, adjusting my approach when facing uncertainty or incomplete information.</p>
+            <p>I believe that good decisions are not only data-driven but also context-aware and action-oriented. Therefore, I prioritize clarity, practicality, and impact when analyzing problems and proposing solutions.</p>
+            <div class="vision-box">
+              <h4>My Vision</h4>
+              <p>In the short term, I aim to develop strong foundations in data analysis, financial thinking, and case solving. In the long term, I aspire to work in consulting or strategy-related roles, where I can solve business problems at a deeper level and create sustainable value for organizations.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- D - Decision -->
+      <div id="sec-D" class="narrative-content hidden">
+        <div class="outline-box">
+          <h2 class="section-title"><span class="drop-cap">D</span>ecision</h2>
+          <div class="experience-list">
+            <h4>Leadership & Activities</h4>
+            <div class="exp-item">
+              <span class="exp-date">Oct 2025 – Current</span>
+              <strong>Specialization Dept. | Young Economists Club</strong>
+              <p>Lead Marketing & Strategy Development teams; drove execution that won Best Team in NEU’s Business Month.</p>
+            </div>
+            <div class="exp-item">
+              <span class="exp-date">Apr 2024 – 2025</span>
+              <strong>Founder | The Economics Mastery</strong>
+              <p>Built a community of 100+ members, enabling knowledge sharing and networking for business cases.</p>
+            </div>
+          </div>
+          <div class="text-content" style="margin-top: 40px;">
+            <h3>Project Showcase</h3>
+            <p>Select a project to view the details.</p>
+          </div>
+          <!-- Project Selection Grid -->
+          <div class="project-selection" id="project-selection">
+            <div class="project-thumb" data-project="airbnb">
+              <h4>AIRBNB MARKET DEVELOPMENT</h4>
+              <p>Strategic expansion & CAC/LTV optimization</p>
+            </div>
+            <div class="project-thumb" data-project="siamdairy">
+              <h4>SIAMDAIRY</h4>
+              <p>Case Study & Thailand Market Analysis</p>
+            </div>
+          </div>
+          <div id="project-detail-container"></div>
+        </div>
+      </div>
+
+      <!-- E - Evaluation -->
+      <div id="sec-E" class="narrative-content hidden">
+        <div class="outline-box">
+          <h2 class="section-title"><span class="drop-cap">E</span>valuation</h2>
+          <div class="text-content">
+            <h3>How I grow</h3>
+            <p>I actively reflect on both my performance and how others perceive my work to continuously improve. I am often recognized as a proactive and responsible team member who takes initiative in both execution and problem-solving.</p>
+            <p>At the same time, I am aware that I am still developing depth in analytical thinking and decision-making under complex conditions. I continuously work on improving how I structure problems, prioritize key issues, and translate analysis into clearer, more impactful recommendations.</p>
+            <p><strong>Through each project and experience, I aim not only to deliver results but also to refine my thinking process, making it more structured, adaptable, and outcome-oriented over time.</strong></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q - Contact / End of Journey (Restored) -->
+      <div id="sec-Q" class="narrative-content hidden">
+        <div class="reward-message" id="reward-message">
+          <h2 class="gold-text">Nay bạn vất vả rồi...</h2>
+          <p style="font-size: 1.5rem; color: var(--dark-burgundy);">hãy thưởng cho mình một bữa ăn ngon nhé!</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Final Portfolio View (Matches Screenshot Mockup) -->
+  <section id="final-screen" class="hidden final-layout">
+    <div class="final-container">
+      
+      <!-- Top floating cards -->
+      <div class="final-cards-banner" id="final-cards-container">
+        <!-- JS injects the 4 cards here (C O D E) -->
+      </div>
+
+      <!-- Character Block (C) -->
+      <div id="final-sec-C" class="final-outline-box">
+        <h2 class="final-section-title"><span class="drop-cap">C</span>haracter</h2>
+        <div class="char-layout">
+          <div class="char-info">
+            <div class="info-row">
+              <strong>Name</strong><span>Van Thi Mai Phuong (Sena)</span>
+            </div>
+            <div class="info-row">
+              <strong>Education</strong><span>NEU - Bachelor of Finance & Banking</span>
+            </div>
+            <div class="info-row align-top">
+              <strong>Skill</strong>
+              <div class="tags">
+                <span class="tag bg-burgundy">Data Analysis</span>
+                <span class="tag bg-burgundy">Digital Marketing</span>
+                <span class="tag bg-burgundy">IELTS 7.0</span>
+                <span class="tag bg-burgundy">Critical Thinking</span>
+              </div>
+            </div>
+            <p class="char-desc">Beyond academic knowledge, I focus on developing practical perspectives on how businesses operate, how decisions are made, and how value is created. I am particularly interested in roles that combine analytical thinking with strategic insight, where I can continuously learn, adapt, and contribute to meaningful outcomes.</p>
+          </div>
+          <div class="char-photo">
+            <img src="profile.jpg" alt="Sena">
+          </div>
+        </div>
+      </div>
+
+      <!-- Outlook Block (O) -->
+      <div id="final-sec-O" class="final-outline-box">
+        <h2 class="final-section-title"><span class="drop-cap">O</span>utlook</h2>
+        <div class="text-content">
+          <h3 class="red-heading" style="margin-top:0;">How I think</h3>
+          <p>I approach problems through a structured yet flexible mindset. I start by breaking down complex situations into clear components, then use data and logical reasoning to identify key drivers and insights. At the same time, I remain adaptable, adjusting my approach when facing uncertainty or incomplete information.</p>
+          <p>I believe that good decisions are not only data-driven but also context-aware and action-oriented. Therefore, I prioritize clarity, practicality, and impact when analyzing problems and proposing solutions.</p>
+          <div class="vision-box">
+            <h4>My Vision</h4>
+            <p>In the short term, I aim to develop strong foundations in data analysis, financial thinking, and case solving. In the long term, I aspire to work in consulting or strategy-related roles, where I can solve business problems at a deeper level and create sustainable value for organizations.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Decision Block (D) -->
+      <div id="final-sec-D" class="final-outline-box">
+        <h2 class="final-section-title"><span class="drop-cap">D</span>ecision</h2>
+        
+        <h3 class="red-heading">Experiance</h3>
+        <div class="experience-list">
+          <div class="exp-item">
+            <span class="exp-date">Oct 2025 – Current</span>
+            <strong>Specialization Dept. | Young Economists Club</strong>
+          </div>
+          <div class="exp-item">
+            <span class="exp-date">Apr 2024 – 2025</span>
+            <strong>Founder | The Economics Mastery</strong>
+          </div>
+        </div>
+
+        <h3 class="red-heading" style="margin-top: 30px;">Personal Project</h3>
+        <div class="pill-btn-group">
+          <button class="pill-btn" onclick="openFinalProject('airbnb')">Airbnb</button>
+          <button class="pill-btn" onclick="openFinalProject('siamdairy')">SiamDairy Thailand</button>
+        </div>
+
+        <div id="final-project-detail-container" style="display:none; margin-top: 30px;"></div>
+      </div>
+
+      <!-- Evaluation Block (E) -->
+      <div id="final-sec-E" class="final-outline-box">
+        <h2 class="final-section-title"><span class="drop-cap">E</span>valuation</h2>
+        <div class="text-content">
+          <h3 class="red-heading" style="margin-top:0;">How I grow</h3>
+          <p>I actively reflect on both my performance and how others perceive my work to continuously improve. I am often recognized as a proactive and responsible team member who takes initiative in both execution and problem-solving.</p>
+          <p>At the same time, I am aware that I am still developing depth in analytical thinking and decision-making under complex conditions. I continuously work on improving how I structure problems, prioritize key issues, and translate analysis into clearer, more impactful recommendations.</p>
+          <p><strong>Through each project and experience, I aim not only to deliver results but also to refine my thinking process, making it more structured, adaptable, and outcome-oriented over time.</strong></p>
+        </div>
+      </div>
+
+      <!-- Contact Block -->
+      <div class="final-outline-box contact-outline">
+        <h3 class="red-heading text-center" style="margin-top:-25px; margin-bottom: 20px; background: var(--bg-cream); padding: 0 10px; display:inline-block; font-size:1.3rem;">Let's connect and create something meaningful together.</h3>
+        
+        <div class="chat-mockup">
+          <div class="chat-bubble left bg-burgundy text-white">Hi Sena, I'd love to chat!</div>
+          <div class="chat-bubble right bg-gray">Looking forward to it! Let's connect.</div>
+        </div>
+      </div>
+
+    </div>
+    
+    <!-- Footer -->
+    <footer class="final-footer">
+      <div class="footer-row">
+        <a href="mailto:vanmaiphuong1311@gmail.com" class="footer-link">vanmaiphuong1311@gmail.com</a>
+        <span class="footer-link">(+84) 815 787 584</span>
+        <a href="https://www.linkedin.com/in/mai-phuong-van-thi-381176279/" class="footer-link" target="_blank">LinkedIn</a>
+      </div>
+    </footer>
+  </section>
+
+</body>
+</html>
