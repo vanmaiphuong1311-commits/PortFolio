@@ -256,5 +256,31 @@ const projectDatabase = {
       finalCardsContainer.appendChild(card);
     });
   }
+// Tự động cuộn đến nội dung khi bấm vào các thẻ banner ở trang cuối
+document.addEventListener("DOMContentLoaded", () => {
+  const finalContainer = document.getElementById("final-cards-container");
+  
+  if (finalContainer) {
+    // Lắng nghe sự kiện click vào các thẻ con bên trong banner
+    finalContainer.addEventListener("click", (e) => {
+      // Tìm xem thẻ nào được click (C, O, D, hoặc E)
+      const card = e.target.closest(".card") || e.target.closest(".final-card"); 
+      if (!card) return;
 
+      // Lấy chữ cái của thẻ (C, O, D, E) dựa vào text hoặc class của thẻ đó
+      // Giả sử thẻ có chứa chữ cái tương ứng, ta lấy chữ cái đầu tiên
+      const letter = card.textContent.trim().charAt(0).toUpperCase();
+      
+      // Tìm khối nội dung tương ứng bên dưới
+      const targetSection = document.getElementById(`final-sec-${letter}`);
+      
+      if (targetSection) {
+        // Cuộn mượt mà đến khối nội dung đó
+        targetSection.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+      }
+    });
+  }
 });
