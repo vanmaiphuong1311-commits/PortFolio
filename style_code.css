@@ -1,3 +1,6 @@
+html {
+  scroll-behavior: smooth;
+}
 /* style_code.css */
 :root {
   /* Color Palette */
