@@ -19,22 +19,22 @@ document.addEventListener("DOMContentLoaded", () => {
   let isReExploration = false; 
 
   // Projects Data
-  const projectDatabase = {
-    "airbnb": {
-      title: "AIRBNB MARKET DEVELOPMENT",
-      desc: "Strategic expansion focusing on local hosts, optimizing customer acquisition cost (CAC), and maximizing lifetime value (LTV).",
-      src: "../MY INFORMATION/Personal Project/AIRBNB MARKET DEVELOPMENT/AIRBNB MARKET DEVELOPMENT_VAN THI MAI PHUONG (SENA)_K45 .pdf",
-      extraBtn: "View Dataset",
-      extraSrc: "../MY INFORMATION/Personal Project/AIRBNB MARKET DEVELOPMENT/Airbnb_New York_Dataset.xlsx"
-    },
-    "siamdairy": {
-      title: "SIAMDAIRY (THAILAND)",
-      desc: "In-depth case study analyzing SiamDairy's market position, competitive advantages, and potential expansion strategies in the dairy sector.",
-      src: "../MY INFORMATION/Personal Project/SiamDairy/SiamDairy Thailand.pdf",
-      extraBtn: "View CaseStudy",
-      extraSrc: "../MY INFORMATION/Personal Project/SiamDairy/CaseStudy.pdf"
-    }
-  };
+const projectDatabase = {
+  "airbnb": {
+    title: "AIRBNB MARKET DEVELOPMENT",
+    desc: "Strategic expansion focusing on local hosts, optimizing customer acquisition cost (CAC), and maximizing lifetime value (LTV).",
+    src: "Personal Project/AIRBNB MARKET DEVELOPMENT/AIRBNB MARKET DEVELOPMENT_VAN THI MAI PHUONG (SENA)_K45 .pdf",
+    extraBtn: "View Dataset",
+    extraSrc: "Personal Project/AIRBNB MARKET DEVELOPMENT/Airbnb_New York_Dataset.xlsx"
+  },
+  "siamdairy": {
+    title: "SIAMDAIRY (THAILAND)",
+    desc: "In-depth case study analyzing SiamDairy's market position, competitive advantages, and potential expansion strategies in the dairy sector.",
+    src: "Personal Project/SiamDairy/SiamDairy Thailand.pdf",
+    extraBtn: "View CaseStudy",
+    extraSrc: "Personal Project/SiamDairy/CaseStudy.pdf"
+  }
+};
 
   initProjectSelection();
   
