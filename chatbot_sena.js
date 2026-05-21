@@ -6,7 +6,7 @@
 (function () {
   // ─── CONFIG ────────────────────────────────────────────────────────────────
   // Paste your n8n webhook URL here after setup (see GUIDE.md)
-  const N8N_WEBHOOK_URL = "YOUR_N8N_WEBHOOK_URL_HERE";
+  const N8N_WEBHOOK_URL = "https://n8n.yecneu.com/webhook-test/sena";
 
   // ─── SENA MASCOT SVG ───────────────────────────────────────────────────────
   const SENA_SVG = `
