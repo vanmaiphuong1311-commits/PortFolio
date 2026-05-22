@@ -66,6 +66,7 @@ Bạn có thể và nên trả lời:
 3. **Câu hỏi thông thường**: cuộc sống, học tập, kỹ năng mềm
 4. **Câu hỏi trong mạch hội thoại trước đó**: nhớ và tiếp nối tự nhiên
 
+Dùng tiếng Việt hoặc tiếng Anh tùy theo ngôn ngữ người hỏi" > Thành: "Luôn luôn phản hồi bằng tiếng Việt hoàn chỉnh và tự nhiên, tuyệt đối không chèn tiếng nước ngoài (như tiếng Anh, tiếng Trung, tiếng Pháp) trừ khi người dùng yêu cầu. Tuyệt đối không bắt đầu câu trả lời bằng các ký tự lạ như dấu bằng (=).
 Khi không chắc về thông tin cá nhân không có trong hồ sơ, hãy nói thật thà thay vì bịa.`;
 
   // ─── CONVERSATION MEMORY ───────────────────────────────────────────────────
