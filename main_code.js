@@ -33,42 +33,38 @@ document.addEventListener("DOMContentLoaded", () => {
       src: "Personal Project/SiamDairy/SiamDairy Thailand.pdf",
       extraBtn: "View CaseStudy",
       extraSrc: "Personal Project/SiamDairy/CaseStudy.pdf"
+    },
+    "mwg": {
+      title: "[MWG] FINANCIAL ANALYSIS",
+      desc: "Equity research on Mobile World Investment Corp (MWG) — business overview, industry outlook, financial analysis, and valuation, concluding a BUY rating with 30% upside on a 12-month horizon.",
+      src: "Personal Project/MWG Financial Analysis/MWG Financial Analysis.pdf",
+      extraBtn: "Download Report",
+      extraSrc: "Personal Project/MWG Financial Analysis/MWG Financial Analysis.pdf"
     }
   };
 
   initProjectSelection();
-  
-  // Expose function to global scope for final layout pill buttons
-  window.openFinalProject = function(projectId) {
-    const data = projectDatabase[projectId];
-    const container = document.getElementById("final-project-detail-container");
-    container.style.display = "block";
-    container.innerHTML = `
-      <iframe src="${data.src}#toolbar=0" class="project-iframe" title="${data.title}"></iframe>
-      <div style="margin-top: 15px; display: flex; gap: 15px; justify-content: center;">
-        <a href="${data.src}" target="_blank" class="btn-outline">Open PDF</a>
-        <a href="${data.extraSrc}" target="_blank" class="btn-primary">${data.extraBtn}</a>
-      </div>
-    `;
-    gsap.fromTo(container, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.4 });
-  };
+  initFinalProjectSelection();
+  initProjectGridAttention();
 
   btnExplore.addEventListener("click", startJourney);
   if(btnSkip) btnSkip.addEventListener("click", skipToPortfolio);
   btnBack.addEventListener("click", closeContentPanel);
   
   function initProjectSelection() {
-    const thumbs = document.querySelectorAll(".project-thumb");
+    const grid = document.getElementById("project-selection");
     const container = document.getElementById("project-detail-container");
-    
-    thumbs.forEach(thumb => {
-      thumb.addEventListener("click", () => {
-        thumbs.forEach(t => t.classList.remove("active"));
-        thumb.classList.add("active");
-        
-        const projectId = thumb.dataset.project;
+    if (!grid || !container) return;
+    const cards = grid.querySelectorAll(".project-card");
+
+    cards.forEach(card => {
+      card.addEventListener("click", () => {
+        cards.forEach(c => c.classList.remove("active"));
+        card.classList.add("active");
+
+        const projectId = card.dataset.project;
         const data = projectDatabase[projectId];
-        
+
         container.style.display = "block";
         container.innerHTML = `
           <h4 style="color: var(--dark-burgundy); margin-bottom: 5px;">${data.title}</h4>
@@ -81,6 +77,52 @@ document.addEventListener("DOMContentLoaded", () => {
         gsap.fromTo(container, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.4 });
       });
     });
+  }
+
+  // Final dashboard (re-exploration) project grid — mirrors initProjectSelection
+  function initFinalProjectSelection() {
+    const grid = document.getElementById("final-project-grid");
+    const container = document.getElementById("final-project-detail-container");
+    if (!grid || !container) return;
+    const cards = grid.querySelectorAll(".project-card");
+
+    cards.forEach(card => {
+      card.addEventListener("click", () => {
+        cards.forEach(c => c.classList.remove("active"));
+        card.classList.add("active");
+
+        const projectId = card.dataset.project;
+        const data = projectDatabase[projectId];
+
+        container.style.display = "block";
+        container.innerHTML = `
+          <iframe src="${data.src}#toolbar=0" class="project-iframe" title="${data.title}"></iframe>
+          <div style="margin-top: 15px; display: flex; gap: 15px; justify-content: center;">
+            <a href="${data.src}" target="_blank" class="btn-outline">Open PDF</a>
+            <a href="${data.extraSrc}" target="_blank" class="btn-primary">${data.extraBtn}</a>
+          </div>
+        `;
+        gsap.fromTo(container, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.4 });
+      });
+    });
+  }
+
+  // Draws attention to the project cards: staggered reveal the first time the grid scrolls into view
+  function initProjectGridAttention() {
+    const grids = document.querySelectorAll(".project-grid");
+    if (!grids.length || !("IntersectionObserver" in window)) {
+      grids.forEach(g => g.classList.add("in-view"));
+      return;
+    }
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("in-view");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.25 });
+    grids.forEach(g => observer.observe(g));
   }
 
   function startJourney() {
