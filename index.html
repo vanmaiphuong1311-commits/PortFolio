@@ -110,18 +110,41 @@
             </div>
           </div>
           <div class="text-content" style="margin-top: 40px;">
-            <h3>Project Showcase</h3>
+            <h3>Project Showcase<span class="showcase-ping"></span></h3>
             <p>Select a project to view the details.</p>
           </div>
           <!-- Project Selection Grid -->
-          <div class="project-selection" id="project-selection">
-            <div class="project-thumb" data-project="airbnb">
-              <h4>AIRBNB MARKET DEVELOPMENT</h4>
-              <p>Strategic expansion & CAC/LTV optimization</p>
+          <div class="project-grid" id="project-selection">
+            <div class="project-card" data-project="airbnb">
+              <div class="project-card-visual"><img class="project-card-cover" src="assets/thumbs/airbnb-cover.jpg" alt="Airbnb Market Development — cover slide"></div>
+              <div class="project-card-footer">
+                <div class="project-card-text">
+                  <h4>AIRBNB</h4>
+                  <p>Market Development</p>
+                </div>
+                <button type="button" class="project-card-arrow" aria-label="Open Airbnb project">&#8599;</button>
+              </div>
             </div>
-            <div class="project-thumb" data-project="siamdairy">
-              <h4>SIAMDAIRY</h4>
-              <p>Case Study & Thailand Market Analysis</p>
+            <div class="project-card" data-project="siamdairy">
+              <div class="project-card-visual"><img class="project-card-cover" src="assets/thumbs/siamdairy-cover.jpg" alt="SiamDairy Thailand — cover slide"></div>
+              <div class="project-card-footer">
+                <div class="project-card-text">
+                  <h4>SIAMDAIRY</h4>
+                  <p>Thailand Case Study</p>
+                </div>
+                <button type="button" class="project-card-arrow" aria-label="Open SiamDairy project">&#8599;</button>
+              </div>
+            </div>
+            <div class="project-card" data-project="mwg">
+              <span class="project-card-badge">NEW</span>
+              <div class="project-card-visual"><img class="project-card-cover" src="assets/thumbs/mwg-cover.jpg" alt="[MWG] Financial Analysis — cover slide"></div>
+              <div class="project-card-footer">
+                <div class="project-card-text">
+                  <h4>[MWG]</h4>
+                  <p>Financial Analysis</p>
+                </div>
+                <button type="button" class="project-card-arrow" aria-label="Open MWG project">&#8599;</button>
+              </div>
             </div>
           </div>
           <div id="project-detail-container"></div>
@@ -219,10 +242,39 @@
           </div>
         </div>
 
-        <h3 class="red-heading" style="margin-top: 30px;">Personal Project</h3>
-        <div class="pill-btn-group">
-          <button class="pill-btn" onclick="openFinalProject('airbnb')">Airbnb</button>
-          <button class="pill-btn" onclick="openFinalProject('siamdairy')">SiamDairy Thailand</button>
+        <h3 class="red-heading" style="margin-top: 30px;">Personal Project<span class="showcase-ping"></span></h3>
+        <div class="project-grid" id="final-project-grid">
+          <div class="project-card" data-project="airbnb">
+            <div class="project-card-visual"><img class="project-card-cover" src="assets/thumbs/airbnb-cover.jpg" alt="Airbnb Market Development — cover slide"></div>
+            <div class="project-card-footer">
+              <div class="project-card-text">
+                <h4>AIRBNB</h4>
+                <p>Market Development</p>
+              </div>
+              <button type="button" class="project-card-arrow" aria-label="Open Airbnb project">&#8599;</button>
+            </div>
+          </div>
+          <div class="project-card" data-project="siamdairy">
+            <div class="project-card-visual"><img class="project-card-cover" src="assets/thumbs/siamdairy-cover.jpg" alt="SiamDairy Thailand — cover slide"></div>
+            <div class="project-card-footer">
+              <div class="project-card-text">
+                <h4>SIAMDAIRY</h4>
+                <p>Thailand Case Study</p>
+              </div>
+              <button type="button" class="project-card-arrow" aria-label="Open SiamDairy project">&#8599;</button>
+            </div>
+          </div>
+          <div class="project-card" data-project="mwg">
+            <span class="project-card-badge">NEW</span>
+            <div class="project-card-visual"><img class="project-card-cover" src="assets/thumbs/mwg-cover.jpg" alt="[MWG] Financial Analysis — cover slide"></div>
+            <div class="project-card-footer">
+              <div class="project-card-text">
+                <h4>[MWG]</h4>
+                <p>Financial Analysis</p>
+              </div>
+              <button type="button" class="project-card-arrow" aria-label="Open MWG project">&#8599;</button>
+            </div>
+          </div>
         </div>
 
         <div id="final-project-detail-container" style="display:none; margin-top: 30px;"></div>
